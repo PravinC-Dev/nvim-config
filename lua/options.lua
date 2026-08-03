@@ -7,15 +7,15 @@ opt.showmode = false
 opt.undofile = true
 
 -- Line numbers
-opt.number = true                   -- Display line numbers
-opt.numberwidth = 2                 -- Set min number column width
+opt.number = true -- Display line numbers
+opt.numberwidth = 2 -- Set min number column width
 
 -- Display and UI
-opt.cursorline = true               -- Highlight cursor line
-opt.fillchars = { eob = " " }       -- Hide '~' on empty buffer lines
-opt.wrap = false                    -- Disable wrap line
-opt.sidescroll = 1                  -- Scroll 1-char horizontally
-opt.sidescrolloff = 5               -- Keep 5-char margin
+opt.cursorline = true -- Highlight cursor line
+opt.fillchars = { eob = " " } -- Hide '~' on empty buffer lines
+opt.wrap = false -- Disable wrap line
+opt.sidescroll = 1 -- Scroll 1-char horizontally
+opt.sidescrolloff = 5 -- Keep 5-char margin
 opt.signcolumn = "yes"
 opt.winborder = "rounded"
 
@@ -30,3 +30,8 @@ opt.termguicolors = true
 
 -- Sync clipboard between OS and Neovim.
 opt.clipboard = "unnamedplus"
+
+opt.grepprg = "rg --vimgrep --smart-case --hidden"
+opt.grepformat = "%f:%l:%c:%m"
+
+opt.path:append("**")

@@ -25,10 +25,18 @@ keymap("n", "<A-.>", "<C-w><", { desc = "Make Window Narrower" }) -- Alt .
 -- keymap("n", "<C-L>", "<C-w>l", { desc = "Move To Right Pane" })     -- Ctrl l
 --
 -- Unified nvim+tmux navigation
-vim.keymap.set("n", "<C-h>", function() require("tmux").move_left()   end, { silent = true })
-vim.keymap.set("n", "<C-j>", function() require("tmux").move_bottom() end, { silent = true })
-vim.keymap.set("n", "<C-k>", function() require("tmux").move_top()    end, { silent = true })
-vim.keymap.set("n", "<C-l>", function() require("tmux").move_right()  end, { silent = true })
+vim.keymap.set("n", "<C-h>", function()
+	require("tmux").move_left()
+end, { silent = true })
+vim.keymap.set("n", "<C-j>", function()
+	require("tmux").move_bottom()
+end, { silent = true })
+vim.keymap.set("n", "<C-k>", function()
+	require("tmux").move_top()
+end, { silent = true })
+vim.keymap.set("n", "<C-l>", function()
+	require("tmux").move_right()
+end, { silent = true })
 
 -- -- Window navigation with <leader> + h/j/k/l
 vim.keymap.set("n", "<leader>h", "<C-w>h", { silent = true })
@@ -48,14 +56,8 @@ keymap("n", "<S-Tab>", "<<", { desc = "Unindent Line (Normal mode)" }) -- Shift 
 keymap("v", "<Tab>", ">gv", { desc = "Indent Selection (Visual mode)" }) -- Tab
 keymap("v", "<S-Tab>", "<gv", { desc = "Unindent Selection (Visual mode)" }) -- Shift Tab
 
--- Cord.nvim setup
-vim.keymap.set("n", "<leader>rp", function()
-	require("cord").setup(require("user.cord"))
-end, { desc = "Start Cord presence" })
-
-vim.keymap.set("n", "<leader>rd", function()
-	vim.cmd("Cord shutdown")
-end, { desc = "Shutdown Cord presence" })
+keymap("n", "]a", ":next<CR>", { desc = "Next Arg" })
+keymap("n", "[a", ":prev<CR>", { desc = "Prev Arg" })
 
 -- Wrap in asterisk
 vim.keymap.set("x", "<leader>i", 'c*<C-r>"*', { noremap = true })
@@ -64,21 +66,21 @@ vim.keymap.set("x", "<leader>i", 'c*<C-r>"*', { noremap = true })
 vim.keymap.set("x", "<C-b>", 'c**<C-r>"**', { noremap = true })
 
 --Copy the rendered text from markdown instead of raw code
-vim.keymap.set('v', '<leader>y',
-  [[:w !pandoc -f markdown -t html | wl-copy --type text/html<CR><CR>]],
-  { noremap = true, silent = true, desc = "Copy Markdown as rendered HTML" }
+vim.keymap.set(
+	"v",
+	"<leader>y",
+	[[:w !pandoc -f markdown -t html | wl-copy --type text/html<CR><CR>]],
+	{ noremap = true, silent = true, desc = "Copy Markdown as rendered HTML" }
 )
 
 --Mapping leader+d to send the text to shadow realm instead of saving it to clipboard
 vim.keymap.set("v", "<leader>d", '"_d', { desc = "Delete without yanking" })
 vim.keymap.set("n", "<leader>d", '"_d', { desc = "Delete without yanking" })
 
-
 --Text movement
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-
 -- Hint: start visual mode with the same area as the previous area and the same mode
-vim.keymap.set('v', '<', '<gv', opts)
-vim.keymap.set('v', '>', '>gv', opts)
+vim.keymap.set("v", "<", "<gv", opts)
+vim.keymap.set("v", ">", ">gv", opts)
