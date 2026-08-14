@@ -121,6 +121,10 @@
       "rev": "f7c673b8e46e8f233ff581d3624a517d33a7e264",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
+    "tiny-inline-diagnostic.nvim": {
+      "rev": "6264451f14119d63a52580e5198d6baf8518b0b2",
+      "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
+    },
     "tirenvi.nvim": {
       "rev": "1a59b6e9dcd9799d848744c9678f32defa90bf99",
       "src": "https://github.com/kibi2/tirenvi.nvim"
